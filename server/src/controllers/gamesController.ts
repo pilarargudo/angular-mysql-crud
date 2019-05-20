@@ -12,8 +12,12 @@ class GamesController {
     //pool.query('DESCRIBE games');
     res.json('este es el juego ' + req.params.id );
   }
-  public create (req: Request, res: Response) {
-    res.json({text: 'creando un juego'});
+  public async create (req: Request, res: Response): Promise<void> {
+    // datos  que recibimos
+    console.log(req.body);
+    //enviamos a la base de datos, como puede tomar tiempo async await
+    await pool.query('INSERT INTO games set ?', [req.body]);
+    res.json({message: 'Juego guardado'});
   }
 
   public delete (req: Request, res: Response) {
