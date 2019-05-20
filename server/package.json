@@ -18,6 +18,7 @@
     "promise-mysql": "^3.3.2"
   },
   "devDependencies": {
+    "@types/express": "^4.16.1",
     "nodemon": "^1.19.0"
   }
 }
